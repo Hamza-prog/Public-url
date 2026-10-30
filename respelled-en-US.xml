@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TEST ONLY - not used by the bot (it reads static/tts/lexicon-en-US.xml).
+  For listening tests in the Azure playground with an HD voice
+  (en-US-Adam:DragonHDLatestNeural). HD voices apply only <alias> entries, so each
+  name is respelled in plain English letters: the voice stays in one English
+  accent, with the stress and vowels of the Arabic name.
+-->
+<lexicon version="1.0"
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <!-- al-far-DAAN -->
+  <lexeme>
+    <grapheme>Alfardan</grapheme>
+    <grapheme>ALFARDAN</grapheme>
+    <grapheme>AlFardan</grapheme>
+    <alias>Al Fardaan</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Alfardan's</grapheme>
+    <grapheme>ALFARDAN'S</grapheme>
+    <alias>Al Fardaan's</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fardan</grapheme>
+    <grapheme>FARDAN</grapheme>
+    <alias>Fardaan</alias>
+  </lexeme>
+  <!-- sook WAA-kif -->
+  <lexeme>
+    <grapheme>Souq</grapheme>
+    <grapheme>SOUQ</grapheme>
+    <grapheme>Souk</grapheme>
+    <grapheme>SOUK</grapheme>
+    <alias>Sook</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Waqif</grapheme>
+    <grapheme>WAQIF</grapheme>
+    <alias>Waakif</alias>
+  </lexeme>
+  <!-- al WAK-ra -->
+  <lexeme>
+    <grapheme>Wakrah</grapheme>
+    <grapheme>WAKRAH</grapheme>
+    <alias>Wakra</alias>
+  </lexeme>
+  <!-- al doo-HAIL -->
+  <lexeme>
+    <grapheme>Duhail</grapheme>
+    <grapheme>DUHAIL</grapheme>
+    <alias>Doohail</alias>
+  </lexeme>
+  <!-- NADJ-ma -->
+  <lexeme>
+    <grapheme>Najma</grapheme>
+    <grapheme>NAJMA</grapheme>
+    <alias>Nadjma</alias>
+  </lexeme>
+  <!-- KAH-tar -->
+  <lexeme>
+    <grapheme>Qatar</grapheme>
+    <grapheme>QATAR</grapheme>
+    <alias>Kahtar</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Qatar's</grapheme>
+    <grapheme>QATAR'S</grapheme>
+    <alias>Kahtar's</alias>
+  </lexeme>
+  <!-- plass von-DOHM -->
+  <lexeme>
+    <grapheme>Vendome</grapheme>
+    <grapheme>VENDOME</grapheme>
+    <alias>Vondome</alias>
+  </lexeme>
+  <!-- KHAA-lid -->
+  <lexeme>
+    <grapheme>Khalid</grapheme>
+    <grapheme>KHALID</grapheme>
+    <alias>Khaalid</alias>
+  </lexeme>
+</lexicon>

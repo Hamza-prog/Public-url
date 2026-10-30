@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TEST ONLY - not used by the bot (it reads static/tts/lexicon-en-US.xml).
+  For listening tests in the Azure playground with a standard (non-HD) voice such
+  as en-US-AndrewNeural or en-US-GuyNeural: standard voices apply <phoneme>
+  entries, so each name gets exact syllables and stress in one English accent.
+  IPA from Azure's en-US phone set; "." between syllables, every syllable of a
+  stressed word marked.
+-->
+<lexicon version="1.0"
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <!-- al-far-DAAN -->
+  <lexeme>
+    <grapheme>Alfardan</grapheme>
+    <grapheme>ALFARDAN</grapheme>
+    <grapheme>AlFardan</grapheme>
+    <phoneme>æl.fɑɹ.ˈdɑn</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Alfardan's</grapheme>
+    <grapheme>ALFARDAN'S</grapheme>
+    <phoneme>æl.fɑɹ.ˈdɑnz</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fardan</grapheme>
+    <grapheme>FARDAN</grapheme>
+    <phoneme>fɑɹ.ˈdɑn</phoneme>
+  </lexeme>
+  <!-- sook WAA-kif -->
+  <lexeme>
+    <grapheme>Souq</grapheme>
+    <grapheme>SOUQ</grapheme>
+    <grapheme>Souk</grapheme>
+    <grapheme>SOUK</grapheme>
+    <phoneme>ˈsuk</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Waqif</grapheme>
+    <grapheme>WAQIF</grapheme>
+    <phoneme>ˈwɑ.kɪf</phoneme>
+  </lexeme>
+  <!-- al WAK-ra -->
+  <lexeme>
+    <grapheme>Wakrah</grapheme>
+    <grapheme>WAKRAH</grapheme>
+    <grapheme>Wakra</grapheme>
+    <grapheme>WAKRA</grapheme>
+    <phoneme>ˈwɑk.ɹə</phoneme>
+  </lexeme>
+  <!-- al doo-HAIL -->
+  <lexeme>
+    <grapheme>Duhail</grapheme>
+    <grapheme>DUHAIL</grapheme>
+    <phoneme>du.ˈheɪl</phoneme>
+  </lexeme>
+  <!-- NADJ-ma -->
+  <lexeme>
+    <grapheme>Najma</grapheme>
+    <grapheme>NAJMA</grapheme>
+    <phoneme>ˈnædʒ.mə</phoneme>
+  </lexeme>
+  <!-- KAH-tar -->
+  <lexeme>
+    <grapheme>Qatar</grapheme>
+    <grapheme>QATAR</grapheme>
+    <phoneme>ˈkɑ.tɑɹ</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Qatar's</grapheme>
+    <grapheme>QATAR'S</grapheme>
+    <phoneme>ˈkɑ.tɑɹz</phoneme>
+  </lexeme>
+  <!-- DOH-ha -->
+  <lexeme>
+    <grapheme>Doha</grapheme>
+    <grapheme>DOHA</grapheme>
+    <phoneme>ˈdoʊ.hə</phoneme>
+  </lexeme>
+  <!-- plass von-DOHM -->
+  <lexeme>
+    <grapheme>Vendome</grapheme>
+    <grapheme>VENDOME</grapheme>
+    <phoneme>vɑn.ˈdoʊm</phoneme>
+  </lexeme>
+  <!-- KAA-lid -->
+  <lexeme>
+    <grapheme>Khalid</grapheme>
+    <grapheme>KHALID</grapheme>
+    <phoneme>ˈkɑ.lɪd</phoneme>
+  </lexeme>
+</lexicon>
