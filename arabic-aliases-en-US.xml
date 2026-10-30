@@ -1,0 +1,1704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SSML pronunciation lexicon (W3C PLS 1.0) for the en-US Voice Live voice.
+  Wired in through the voice's custom_lexicon_url (services/ws/azure_session_config.py).
+
+  Why aliases in Arabic script: the voice is a Dragon HD voice, and HD voices apply
+  only <alias> entries from a lexicon; <phoneme> entries are ignored. HD voices are
+  multilingual, so an Arabic-script alias makes the voice say that word in Arabic
+  inside the English reply. The swap happens in TTS only: subtitles and transcripts
+  keep the English spelling.
+
+  Every alias carries full vowel marks (tashkeel). Unmarked Arabic is ambiguous and
+  the voice guesses the vowels: حمام is حَمَام (pigeons) or حَمَّام (bathroom).
+
+  Azure rules this file must follow:
+  - Graphemes are CASE SENSITIVE: every spelling the bot or the Branches data can
+    produce needs its own <grapheme> ("Wakrah", "Wakra", "WAKRAH").
+  - A grapheme can be a phrase only with an <alias> ("Al Rayyan", "Umm Salal
+    Mohammed"); a <phoneme> is per word. Single words carry no article
+    ("Rayyan" -> رَيَّان) so text not matched as a phrase never says it twice.
+  - Phonemes: en-US IPA phone set only, no spaces, "." between syllables.
+  - Max 100 KB. Azure caches a lexicon per URL for 15 minutes; the URL carries
+    the file's content version, so a changed file is fetched again at once.
+
+  New branch or name: add a lexeme with its Title-case AND ALL-CAPS spelling and a
+  vowel-marked Arabic alias; tests/test_tts_lexicon.py checks the rules above.
+-->
+<lexicon version="1.0"
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <!-- ===== Brand and services ===== -->
+  <!-- Al Fardan / Al-Fardan: see the "Al X" section -->
+  <lexeme>
+    <grapheme>Alfardan</grapheme>
+    <grapheme>ALFARDAN</grapheme>
+    <grapheme>AlFardan</grapheme>
+    <alias>الفَرْدَان</alias>
+  </lexeme>
+  <!-- possessive: the Arabic name, without the 's -->
+  <lexeme>
+    <grapheme>Alfardan's</grapheme>
+    <grapheme>ALFARDAN'S</grapheme>
+    <alias>الفَرْدَان</alias>
+  </lexeme>
+  <!-- AL Fardan Center -->
+  <lexeme>
+    <grapheme>Fardan</grapheme>
+    <grapheme>FARDAN</grapheme>
+    <alias>فَرْدَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ooredoo</grapheme>
+    <grapheme>OOREDOO</grapheme>
+    <alias>أُرِيدُ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Souq</grapheme>
+    <grapheme>SOUQ</grapheme>
+    <grapheme>Souk</grapheme>
+    <grapheme>SOUK</grapheme>
+    <alias>سُوق</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Waqif</grapheme>
+    <grapheme>WAQIF</grapheme>
+    <grapheme>Wakif</grapheme>
+    <grapheme>WAKIF</grapheme>
+    <alias>وَاقِف</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Wakrah</grapheme>
+    <grapheme>WAKRAH</grapheme>
+    <grapheme>Wakra</grapheme>
+    <grapheme>WAKRA</grapheme>
+    <alias>وَكْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Najma</grapheme>
+    <grapheme>NAJMA</grapheme>
+    <alias>نَجْمَة</alias>
+  </lexeme>
+
+  <!-- ===== Country and currencies ===== -->
+  <lexeme>
+    <grapheme>Qatar</grapheme>
+    <grapheme>QATAR</grapheme>
+    <grapheme>Qatar's</grapheme>
+    <grapheme>QATAR'S</grapheme>
+    <alias>قَطَر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Qatari</grapheme>
+    <grapheme>QATARI</grapheme>
+    <alias>قَطَرِي</alias>
+  </lexeme>
+  <!-- plural read as the singular, as said in Qatar ("100 riyal") -->
+  <lexeme>
+    <grapheme>Riyal</grapheme>
+    <grapheme>RIYAL</grapheme>
+    <grapheme>Rial</grapheme>
+    <grapheme>RIAL</grapheme>
+    <grapheme>Riyals</grapheme>
+    <grapheme>RIYALS</grapheme>
+    <grapheme>Rials</grapheme>
+    <grapheme>RIALS</grapheme>
+    <alias>رِيَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dirham</grapheme>
+    <grapheme>DIRHAM</grapheme>
+    <grapheme>Dirhams</grapheme>
+    <grapheme>DIRHAMS</grapheme>
+    <alias>دِرْهَم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dinar</grapheme>
+    <grapheme>DINAR</grapheme>
+    <grapheme>Dinars</grapheme>
+    <grapheme>DINARS</grapheme>
+    <alias>دِينَار</alias>
+  </lexeme>
+
+  <!-- ===== Cities and areas (Branches data, branches.csv nearby areas, chat addresses) ===== -->
+  <lexeme>
+    <grapheme>Doha</grapheme>
+    <grapheme>DOHA</grapheme>
+    <alias>الدَّوْحَة</alias>
+  </lexeme>
+  <!-- Ad Dawhah in saved addresses -->
+  <lexeme>
+    <grapheme>Dawhah</grapheme>
+    <grapheme>DAWHAH</grapheme>
+    <alias>دَوْحَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Lusail</grapheme>
+    <grapheme>LUSAIL</grapheme>
+    <alias>لُوسَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Rayyan</grapheme>
+    <grapheme>RAYYAN</grapheme>
+    <alias>رَيَّان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ar-Rayyan</grapheme>
+    <grapheme>AR-RAYYAN</grapheme>
+    <alias>الرَّيَّان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Khor</grapheme>
+    <grapheme>KHOR</grapheme>
+    <grapheme>Khawr</grapheme>
+    <grapheme>KHAWR</grapheme>
+    <alias>خُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Thakhira</grapheme>
+    <grapheme>THAKHIRA</grapheme>
+    <grapheme>Dhakira</grapheme>
+    <grapheme>DHAKIRA</grapheme>
+    <alias>ذَخِيرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Shahaniya</grapheme>
+    <grapheme>SHAHANIYA</grapheme>
+    <alias>شَحَانِيَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mesaieed</grapheme>
+    <grapheme>MESAIEED</grapheme>
+    <alias>مِسَيْعِيد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dukhan</grapheme>
+    <grapheme>DUKHAN</grapheme>
+    <alias>دُخَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Shamal</grapheme>
+    <grapheme>SHAMAL</grapheme>
+    <alias>شَمَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fereej</grapheme>
+    <grapheme>FEREEJ</grapheme>
+    <alias>فِرِيج</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Asmakh</grapheme>
+    <grapheme>ASMAKH</grapheme>
+    <alias>أَسْمَخ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Rawdat</grapheme>
+    <grapheme>RAWDAT</grapheme>
+    <alias>رَوْضَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Khail</grapheme>
+    <grapheme>KHAIL</grapheme>
+    <alias>خَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jasra</grapheme>
+    <grapheme>JASRA</grapheme>
+    <grapheme>Jasrah</grapheme>
+    <grapheme>JASRAH</grapheme>
+    <alias>جَسْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Salata</grapheme>
+    <grapheme>SALATA</grapheme>
+    <alias>سَلَطَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ghuwailina</grapheme>
+    <grapheme>GHUWAILINA</grapheme>
+    <alias>غُوَيْلِينَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mansoura</grapheme>
+    <grapheme>MANSOURA</grapheme>
+    <alias>مَنْصُورَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Muntazah</grapheme>
+    <grapheme>MUNTAZAH</grapheme>
+    <alias>مُنْتَزَه</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Msheireb</grapheme>
+    <grapheme>MSHEIREB</grapheme>
+    <grapheme>Musheireb</grapheme>
+    <grapheme>MUSHEIREB</grapheme>
+    <alias>مُشَيْرِب</alias>
+  </lexeme>
+  <!-- Bin Mahmoud -->
+  <lexeme>
+    <grapheme>Mahmoud</grapheme>
+    <grapheme>MAHMOUD</grapheme>
+    <grapheme>Mehmoud</grapheme>
+    <grapheme>MEHMOUD</grapheme>
+    <alias>مَحْمُود</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Sadd</grapheme>
+    <grapheme>SADD</grapheme>
+    <alias>سَدّ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Nasr</grapheme>
+    <grapheme>NASR</grapheme>
+    <alias>نَصْر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mirqab</grapheme>
+    <grapheme>MIRQAB</grapheme>
+    <alias>مِرْقَاب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jadeed</grapheme>
+    <grapheme>JADEED</grapheme>
+    <alias>جَدِيد</alias>
+  </lexeme>
+  <!-- Matar Qadeem (Old Airport): airport, not مَطَر (rain) -->
+  <lexeme>
+    <grapheme>Matar</grapheme>
+    <grapheme>MATAR</grapheme>
+    <alias>مَطَار</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Qadeem</grapheme>
+    <grapheme>QADEEM</grapheme>
+    <alias>قَدِيم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Thumama</grapheme>
+    <grapheme>THUMAMA</grapheme>
+    <alias>ثُمَامَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Nuaija</grapheme>
+    <grapheme>NUAIJA</grapheme>
+    <alias>نُعَيْجَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Hilal</grapheme>
+    <grapheme>HILAL</grapheme>
+    <alias>هِلَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Wajba</grapheme>
+    <grapheme>WAJBA</grapheme>
+    <alias>وَجْبَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Sailiya</grapheme>
+    <grapheme>SAILIYA</grapheme>
+    <alias>سَيْلِيَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Gharrafat</grapheme>
+    <grapheme>GHARRAFAT</grapheme>
+    <grapheme>Gharaffa</grapheme>
+    <grapheme>GHARAFFA</grapheme>
+    <grapheme>Gharrafa</grapheme>
+    <grapheme>GHARRAFA</grapheme>
+    <grapheme>Gharafa</grapheme>
+    <grapheme>GHARAFA</grapheme>
+    <alias>غَرَّافَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jabal</grapheme>
+    <grapheme>JABAL</grapheme>
+    <alias>جَبَل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Madinat</grapheme>
+    <grapheme>MADINAT</grapheme>
+    <alias>مَدِينَة</alias>
+  </lexeme>
+  <!-- Barwa Madinatna -->
+  <lexeme>
+    <grapheme>Madinatna</grapheme>
+    <grapheme>MADINATNA</grapheme>
+    <grapheme>Madinetna</grapheme>
+    <grapheme>MADINETNA</grapheme>
+    <alias>مَدِينَتْنَا</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Khalifa</grapheme>
+    <grapheme>KHALIFA</grapheme>
+    <alias>خَلِيفَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Luqta</grapheme>
+    <grapheme>LUQTA</grapheme>
+    <alias>لُقْطَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Sidra</grapheme>
+    <grapheme>SIDRA</grapheme>
+    <alias>سِدْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Waab</grapheme>
+    <grapheme>WAAB</grapheme>
+    <alias>وَعَب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Aziziyah</grapheme>
+    <grapheme>AZIZIYAH</grapheme>
+    <grapheme>Aziziya</grapheme>
+    <grapheme>AZIZIYA</grapheme>
+    <alias>عَزِيزِيَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Soudan</grapheme>
+    <grapheme>SOUDAN</grapheme>
+    <alias>سُودَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Muaither</grapheme>
+    <grapheme>MUAITHER</grapheme>
+    <alias>مُعَيْذِر</alias>
+  </lexeme>
+  <!-- Umm Salal -->
+  <lexeme>
+    <grapheme>Salal</grapheme>
+    <grapheme>SALAL</grapheme>
+    <alias>صَلَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Umm</grapheme>
+    <grapheme>UMM</grapheme>
+    <alias>أُمّ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Kharaitiyat</grapheme>
+    <grapheme>KHARAITIYAT</grapheme>
+    <alias>خُرَيْطِيَات</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Noora</grapheme>
+    <grapheme>NOORA</grapheme>
+    <alias>نُورَة</alias>
+  </lexeme>
+  <!-- Al Meera -->
+  <lexeme>
+    <grapheme>Meera</grapheme>
+    <grapheme>MEERA</grapheme>
+    <alias>مِيرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Barzan</grapheme>
+    <grapheme>BARZAN</grapheme>
+    <alias>بَرْزَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Leabaib</grapheme>
+    <grapheme>LEABAIB</grapheme>
+    <alias>لِعْبِيب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jeryan</grapheme>
+    <grapheme>JERYAN</grapheme>
+    <alias>جِرْيَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jenaihat</grapheme>
+    <grapheme>JENAIHAT</grapheme>
+    <alias>جُنَيْحَات</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Murra</grapheme>
+    <grapheme>MURRA</grapheme>
+    <alias>مُرَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Duhail</grapheme>
+    <grapheme>DUHAIL</grapheme>
+    <alias>دُحَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dahl</grapheme>
+    <grapheme>DAHL</grapheme>
+    <alias>دَحْل</alias>
+  </lexeme>
+  <!-- Dahl Al Hamam: pigeons, not حَمَّام (bathroom) -->
+  <lexeme>
+    <grapheme>Hamam</grapheme>
+    <grapheme>HAMAM</grapheme>
+    <alias>حَمَام</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Qassar</grapheme>
+    <grapheme>QASSAR</grapheme>
+    <alias>قَصَّار</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ras</grapheme>
+    <grapheme>RAS</grapheme>
+    <alias>رَأْس</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fontas</grapheme>
+    <grapheme>FONTAS</grapheme>
+    <alias>فُنْطَاس</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Janoub</grapheme>
+    <grapheme>JANOUB</grapheme>
+    <alias>جَنُوب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bayt</grapheme>
+    <grapheme>BAYT</grapheme>
+    <alias>بَيْت</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Barwa</grapheme>
+    <grapheme>BARWA</grapheme>
+    <alias>بَرْوَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mesaimeer</grapheme>
+    <grapheme>MESAIMEER</grapheme>
+    <alias>مُسَيْمِير</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Kheesa</grapheme>
+    <grapheme>KHEESA</grapheme>
+    <alias>خِيسَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Wadi</grapheme>
+    <grapheme>WADI</grapheme>
+    <alias>وَادِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Banat</grapheme>
+    <grapheme>BANAT</grapheme>
+    <alias>بَنَات</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mamoura</grapheme>
+    <grapheme>MAMOURA</grapheme>
+    <alias>مَعْمُورَة</alias>
+  </lexeme>
+  <!-- Souq Al Baladi -->
+  <lexeme>
+    <grapheme>Baladi</grapheme>
+    <grapheme>BALADI</grapheme>
+    <alias>بَلَدِي</alias>
+  </lexeme>
+  <!-- Ain Khalid -->
+  <lexeme>
+    <grapheme>Ain</grapheme>
+    <grapheme>AIN</grapheme>
+    <alias>عَيْن</alias>
+  </lexeme>
+  <!-- Abu Hamour -->
+  <lexeme>
+    <grapheme>Hamour</grapheme>
+    <grapheme>HAMOUR</grapheme>
+    <alias>هَامُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abu</grapheme>
+    <grapheme>ABU</grapheme>
+    <alias>أَبُو</alias>
+  </lexeme>
+  <!-- Bu Sidra (Gulf form of Abu) -->
+  <lexeme>
+    <grapheme>Bu</grapheme>
+    <grapheme>BU</grapheme>
+    <alias>بُو</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ezdan</grapheme>
+    <grapheme>EZDAN</grapheme>
+    <alias>إِزْدَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Wukair</grapheme>
+    <grapheme>WUKAIR</grapheme>
+    <alias>وُكَيْر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Meshaf</grapheme>
+    <grapheme>MESHAF</grapheme>
+    <grapheme>Mashaf</grapheme>
+    <grapheme>MASHAF</grapheme>
+    <alias>مَشَاف</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dafna</grapheme>
+    <grapheme>DAFNA</grapheme>
+    <alias>دَفْنَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Katara</grapheme>
+    <grapheme>KATARA</grapheme>
+    <alias>كَتَارَا</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Tawar</grapheme>
+    <grapheme>TAWAR</grapheme>
+    <alias>طَوَّار</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bidda</grapheme>
+    <grapheme>BIDDA</grapheme>
+    <alias>بِدَع</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Sakhama</grapheme>
+    <grapheme>SAKHAMA</grapheme>
+    <alias>سَخَامَة</alias>
+  </lexeme>
+
+  <!-- ===== Personal names (customers, beneficiaries) ===== -->
+  <lexeme>
+    <grapheme>Mohamed</grapheme>
+    <grapheme>MOHAMED</grapheme>
+    <grapheme>Mohammed</grapheme>
+    <grapheme>MOHAMMED</grapheme>
+    <grapheme>Mohammad</grapheme>
+    <grapheme>MOHAMMAD</grapheme>
+    <grapheme>Muhammad</grapheme>
+    <grapheme>MUHAMMAD</grapheme>
+    <grapheme>Muhammed</grapheme>
+    <grapheme>MUHAMMED</grapheme>
+    <alias>مُحَمَّد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ahmed</grapheme>
+    <grapheme>AHMED</grapheme>
+    <grapheme>Ahmad</grapheme>
+    <grapheme>AHMAD</grapheme>
+    <alias>أَحْمَد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ali</grapheme>
+    <grapheme>ALI</grapheme>
+    <alias>عَلِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Hussain</grapheme>
+    <grapheme>HUSSAIN</grapheme>
+    <grapheme>Hussein</grapheme>
+    <grapheme>HUSSEIN</grapheme>
+    <alias>حُسَيْن</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Hassan</grapheme>
+    <grapheme>HASSAN</grapheme>
+    <grapheme>Hasan</grapheme>
+    <grapheme>HASAN</grapheme>
+    <alias>حَسَن</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jasim</grapheme>
+    <grapheme>JASIM</grapheme>
+    <grapheme>Jassim</grapheme>
+    <grapheme>JASSIM</grapheme>
+    <grapheme>Jasem</grapheme>
+    <grapheme>JASEM</grapheme>
+    <alias>جَاسِم</alias>
+  </lexeme>
+  <!-- also Ain Khalid -->
+  <lexeme>
+    <grapheme>Khalid</grapheme>
+    <grapheme>KHALID</grapheme>
+    <grapheme>Khaled</grapheme>
+    <grapheme>KHALED</grapheme>
+    <alias>خَالِد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Khalil</grapheme>
+    <grapheme>KHALIL</grapheme>
+    <alias>خَلِيل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bilal</grapheme>
+    <grapheme>BILAL</grapheme>
+    <alias>بِلَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Suhail</grapheme>
+    <grapheme>SUHAIL</grapheme>
+    <grapheme>Sohail</grapheme>
+    <grapheme>SOHAIL</grapheme>
+    <alias>سُهَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Umar</grapheme>
+    <grapheme>UMAR</grapheme>
+    <grapheme>Omar</grapheme>
+    <grapheme>OMAR</grapheme>
+    <alias>عُمَر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jamal</grapheme>
+    <grapheme>JAMAL</grapheme>
+    <alias>جَمَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Saad</grapheme>
+    <grapheme>SAAD</grapheme>
+    <alias>سَعْد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Syed</grapheme>
+    <grapheme>SYED</grapheme>
+    <alias>سَيِّد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abdul</grapheme>
+    <grapheme>ABDUL</grapheme>
+    <alias>عَبْد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abdullah</grapheme>
+    <grapheme>ABDULLAH</grapheme>
+    <alias>عَبْدُ الله</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abdulaziz</grapheme>
+    <grapheme>ABDULAZIZ</grapheme>
+    <grapheme>Abdelaziz</grapheme>
+    <grapheme>ABDELAZIZ</grapheme>
+    <alias>عَبْدُ العَزِيز</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abdulrahman</grapheme>
+    <grapheme>ABDULRAHMAN</grapheme>
+    <grapheme>Abdelrahman</grapheme>
+    <grapheme>ABDELRAHMAN</grapheme>
+    <alias>عَبْدُ الرَّحْمَن</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Rahman</grapheme>
+    <grapheme>RAHMAN</grapheme>
+    <alias>رَحْمَن</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bassam</grapheme>
+    <grapheme>BASSAM</grapheme>
+    <alias>بَسَّام</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dandan</grapheme>
+    <grapheme>DANDAN</grapheme>
+    <alias>دَنْدَن</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Saleh</grapheme>
+    <grapheme>SALEH</grapheme>
+    <grapheme>Salih</grapheme>
+    <grapheme>SALIH</grapheme>
+    <alias>صَالِح</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Salem</grapheme>
+    <grapheme>SALEM</grapheme>
+    <grapheme>Salim</grapheme>
+    <grapheme>SALIM</grapheme>
+    <alias>سَالِم</alias>
+  </lexeme>
+  <!-- not "Said": an English word ("as I said") -->
+  <lexeme>
+    <grapheme>Saeed</grapheme>
+    <grapheme>SAEED</grapheme>
+    <alias>سَعِيد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Nasser</grapheme>
+    <grapheme>NASSER</grapheme>
+    <grapheme>Nasir</grapheme>
+    <grapheme>NASIR</grapheme>
+    <alias>نَاصِر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Hamza</grapheme>
+    <grapheme>HAMZA</grapheme>
+    <grapheme>Hamzah</grapheme>
+    <grapheme>HAMZAH</grapheme>
+    <alias>حَمْزَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Yousef</grapheme>
+    <grapheme>YOUSEF</grapheme>
+    <grapheme>Yousuf</grapheme>
+    <grapheme>YOUSUF</grapheme>
+    <grapheme>Yusuf</grapheme>
+    <grapheme>YUSUF</grapheme>
+    <grapheme>Youssef</grapheme>
+    <grapheme>YOUSSEF</grapheme>
+    <alias>يُوسُف</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ibrahim</grapheme>
+    <grapheme>IBRAHIM</grapheme>
+    <alias>إِبْرَاهِيم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mustafa</grapheme>
+    <grapheme>MUSTAFA</grapheme>
+    <grapheme>Mostafa</grapheme>
+    <grapheme>MOSTAFA</grapheme>
+    <alias>مُصْطَفَى</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Faisal</grapheme>
+    <grapheme>FAISAL</grapheme>
+    <alias>فَيْصَل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fahad</grapheme>
+    <grapheme>FAHAD</grapheme>
+    <grapheme>Fahd</grapheme>
+    <grapheme>FAHD</grapheme>
+    <alias>فَهَد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Sultan</grapheme>
+    <grapheme>SULTAN</grapheme>
+    <alias>سُلْطَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Majid</grapheme>
+    <grapheme>MAJID</grapheme>
+    <grapheme>Majed</grapheme>
+    <grapheme>MAJED</grapheme>
+    <alias>مَاجِد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Rashid</grapheme>
+    <grapheme>RASHID</grapheme>
+    <grapheme>Rashed</grapheme>
+    <grapheme>RASHED</grapheme>
+    <alias>رَاشِد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mubarak</grapheme>
+    <grapheme>MUBARAK</grapheme>
+    <alias>مُبَارَك</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jaber</grapheme>
+    <grapheme>JABER</grapheme>
+    <grapheme>Jabir</grapheme>
+    <grapheme>JABIR</grapheme>
+    <alias>جَابِر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Hamdan</grapheme>
+    <grapheme>HAMDAN</grapheme>
+    <alias>حَمْدَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mansour</grapheme>
+    <grapheme>MANSOUR</grapheme>
+    <alias>مَنْصُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fatima</grapheme>
+    <grapheme>FATIMA</grapheme>
+    <grapheme>Fatma</grapheme>
+    <grapheme>FATMA</grapheme>
+    <alias>فَاطِمَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Aisha</grapheme>
+    <grapheme>AISHA</grapheme>
+    <grapheme>Aysha</grapheme>
+    <grapheme>AYSHA</grapheme>
+    <alias>عَائِشَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Maryam</grapheme>
+    <grapheme>MARYAM</grapheme>
+    <grapheme>Mariam</grapheme>
+    <grapheme>MARIAM</grapheme>
+    <alias>مَرْيَم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Noor</grapheme>
+    <grapheme>NOOR</grapheme>
+    <grapheme>Nour</grapheme>
+    <grapheme>NOUR</grapheme>
+    <alias>نُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Hessa</grapheme>
+    <grapheme>HESSA</grapheme>
+    <alias>حِصَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Moza</grapheme>
+    <grapheme>MOZA</grapheme>
+    <alias>مُوزَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Latifa</grapheme>
+    <grapheme>LATIFA</grapheme>
+    <alias>لَطِيفَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Amna</grapheme>
+    <grapheme>AMNA</grapheme>
+    <alias>آمِنَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Zainab</grapheme>
+    <grapheme>ZAINAB</grapheme>
+    <alias>زَيْنَب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Huda</grapheme>
+    <grapheme>HUDA</grapheme>
+    <alias>هُدَى</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Reem</grapheme>
+    <grapheme>REEM</grapheme>
+    <alias>رِيم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Layla</grapheme>
+    <grapheme>LAYLA</grapheme>
+    <grapheme>Laila</grapheme>
+    <grapheme>LAILA</grapheme>
+    <alias>لَيْلَى</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Salma</grapheme>
+    <grapheme>SALMA</grapheme>
+    <alias>سَلْمَى</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Salima</grapheme>
+    <grapheme>SALIMA</grapheme>
+    <alias>سَلِيمَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ismail</grapheme>
+    <grapheme>ISMAIL</grapheme>
+    <alias>إِسْمَاعِيل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Tariq</grapheme>
+    <grapheme>TARIQ</grapheme>
+    <alias>طَارِق</alias>
+  </lexeme>
+  <!-- also Grand Hamad Street -->
+  <lexeme>
+    <grapheme>Hamad</grapheme>
+    <grapheme>HAMAD</grapheme>
+    <alias>حَمَد</alias>
+  </lexeme>
+
+  <!-- ===== Greetings and common Arabic words ===== -->
+  <lexeme>
+    <grapheme>Ramadan</grapheme>
+    <grapheme>RAMADAN</grapheme>
+    <alias>رَمَضَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Eid</grapheme>
+    <grapheme>EID</grapheme>
+    <alias>عِيد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Zakat</grapheme>
+    <grapheme>ZAKAT</grapheme>
+    <alias>زَكَاة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Halal</grapheme>
+    <grapheme>HALAL</grapheme>
+    <alias>حَلَال</alias>
+  </lexeme>
+  <!-- Ayatul Kursi gold item -->
+  <lexeme>
+    <grapheme>Ayatul</grapheme>
+    <grapheme>AYATUL</grapheme>
+    <alias>آيَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Kursi</grapheme>
+    <grapheme>KURSI</grapheme>
+    <alias>كُرْسِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Inshallah</grapheme>
+    <grapheme>INSHALLAH</grapheme>
+    <grapheme>InshaAllah</grapheme>
+    <grapheme>INSHAALLAH</grapheme>
+    <alias>إِنْ شَاءَ الله</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mashallah</grapheme>
+    <grapheme>MASHALLAH</grapheme>
+    <grapheme>MashaAllah</grapheme>
+    <grapheme>MASHAALLAH</grapheme>
+    <alias>مَا شَاءَ الله</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Assalamu</grapheme>
+    <grapheme>ASSALAMU</grapheme>
+    <alias>السَّلَامُ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Alaikum</grapheme>
+    <grapheme>ALAIKUM</grapheme>
+    <alias>عَلَيْكُم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Salam</grapheme>
+    <grapheme>SALAM</grapheme>
+    <alias>سَلَام</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Marhaba</grapheme>
+    <grapheme>MARHABA</grapheme>
+    <alias>مَرْحَبًا</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ahlan</grapheme>
+    <grapheme>AHLAN</grapheme>
+    <alias>أَهْلًا</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Shukran</grapheme>
+    <grapheme>SHUKRAN</grapheme>
+    <alias>شُكْرًا</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Habibi</grapheme>
+    <grapheme>HABIBI</grapheme>
+    <alias>حَبِيبِي</alias>
+  </lexeme>
+
+  <!-- ===== "Al X": the Arabic article joins the word (Al Rayyan -> ar-Rayyan) ===== -->
+  <lexeme>
+    <grapheme>Al Fardan</grapheme>
+    <grapheme>Al-Fardan</grapheme>
+    <grapheme>AL Fardan</grapheme>
+    <grapheme>AL FARDAN</grapheme>
+    <grapheme>AL-FARDAN</grapheme>
+    <alias>الفَرْدَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Wakrah</grapheme>
+    <grapheme>Al-Wakrah</grapheme>
+    <grapheme>AL Wakrah</grapheme>
+    <grapheme>AL WAKRAH</grapheme>
+    <grapheme>AL-WAKRAH</grapheme>
+    <alias>الوَكْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Wakra</grapheme>
+    <grapheme>Al-Wakra</grapheme>
+    <grapheme>AL Wakra</grapheme>
+    <grapheme>AL WAKRA</grapheme>
+    <grapheme>AL-WAKRA</grapheme>
+    <alias>الوَكْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Rayyan</grapheme>
+    <grapheme>Al-Rayyan</grapheme>
+    <grapheme>AL Rayyan</grapheme>
+    <grapheme>AL RAYYAN</grapheme>
+    <grapheme>AL-RAYYAN</grapheme>
+    <alias>الرَّيَّان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Khor</grapheme>
+    <grapheme>Al-Khor</grapheme>
+    <grapheme>AL Khor</grapheme>
+    <grapheme>AL KHOR</grapheme>
+    <grapheme>AL-KHOR</grapheme>
+    <alias>الخُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Khawr</grapheme>
+    <grapheme>Al-Khawr</grapheme>
+    <grapheme>AL Khawr</grapheme>
+    <grapheme>AL KHAWR</grapheme>
+    <grapheme>AL-KHAWR</grapheme>
+    <alias>الخُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Thakhira</grapheme>
+    <grapheme>Al-Thakhira</grapheme>
+    <grapheme>AL Thakhira</grapheme>
+    <grapheme>AL THAKHIRA</grapheme>
+    <grapheme>AL-THAKHIRA</grapheme>
+    <alias>الذَّخِيرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Dhakira</grapheme>
+    <grapheme>Al-Dhakira</grapheme>
+    <grapheme>AL Dhakira</grapheme>
+    <grapheme>AL DHAKIRA</grapheme>
+    <grapheme>AL-DHAKIRA</grapheme>
+    <alias>الذَّخِيرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Shahaniya</grapheme>
+    <grapheme>Al-Shahaniya</grapheme>
+    <grapheme>AL Shahaniya</grapheme>
+    <grapheme>AL SHAHANIYA</grapheme>
+    <grapheme>AL-SHAHANIYA</grapheme>
+    <alias>الشَّحَانِيَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Shamal</grapheme>
+    <grapheme>Al-Shamal</grapheme>
+    <grapheme>AL Shamal</grapheme>
+    <grapheme>AL SHAMAL</grapheme>
+    <grapheme>AL-SHAMAL</grapheme>
+    <alias>الشَّمَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Asmakh</grapheme>
+    <grapheme>Al-Asmakh</grapheme>
+    <grapheme>AL Asmakh</grapheme>
+    <grapheme>AL ASMAKH</grapheme>
+    <grapheme>AL-ASMAKH</grapheme>
+    <alias>الأَسْمَخ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Khail</grapheme>
+    <grapheme>Al-Khail</grapheme>
+    <grapheme>AL Khail</grapheme>
+    <grapheme>AL KHAIL</grapheme>
+    <grapheme>AL-KHAIL</grapheme>
+    <alias>الخَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Jasra</grapheme>
+    <grapheme>Al-Jasra</grapheme>
+    <grapheme>AL Jasra</grapheme>
+    <grapheme>AL JASRA</grapheme>
+    <grapheme>AL-JASRA</grapheme>
+    <alias>الجَسْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Jasrah</grapheme>
+    <grapheme>Al-Jasrah</grapheme>
+    <grapheme>AL Jasrah</grapheme>
+    <grapheme>AL JASRAH</grapheme>
+    <grapheme>AL-JASRAH</grapheme>
+    <alias>الجَسْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Salata</grapheme>
+    <grapheme>Al-Salata</grapheme>
+    <grapheme>AL Salata</grapheme>
+    <grapheme>AL SALATA</grapheme>
+    <grapheme>AL-SALATA</grapheme>
+    <alias>السَّلَطَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Ghuwailina</grapheme>
+    <grapheme>Al-Ghuwailina</grapheme>
+    <grapheme>AL Ghuwailina</grapheme>
+    <grapheme>AL GHUWAILINA</grapheme>
+    <grapheme>AL-GHUWAILINA</grapheme>
+    <alias>الغُوَيْلِينَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Mansoura</grapheme>
+    <grapheme>Al-Mansoura</grapheme>
+    <grapheme>AL Mansoura</grapheme>
+    <grapheme>AL MANSOURA</grapheme>
+    <grapheme>AL-MANSOURA</grapheme>
+    <alias>المَنْصُورَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Muntazah</grapheme>
+    <grapheme>Al-Muntazah</grapheme>
+    <grapheme>AL Muntazah</grapheme>
+    <grapheme>AL MUNTAZAH</grapheme>
+    <grapheme>AL-MUNTAZAH</grapheme>
+    <alias>المُنْتَزَه</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Sadd</grapheme>
+    <grapheme>Al-Sadd</grapheme>
+    <grapheme>AL Sadd</grapheme>
+    <grapheme>AL SADD</grapheme>
+    <grapheme>AL-SADD</grapheme>
+    <alias>السَّدّ</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Nasr</grapheme>
+    <grapheme>Al-Nasr</grapheme>
+    <grapheme>AL Nasr</grapheme>
+    <grapheme>AL NASR</grapheme>
+    <grapheme>AL-NASR</grapheme>
+    <alias>النَّصْر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Mirqab</grapheme>
+    <grapheme>Al-Mirqab</grapheme>
+    <grapheme>AL Mirqab</grapheme>
+    <grapheme>AL MIRQAB</grapheme>
+    <grapheme>AL-MIRQAB</grapheme>
+    <alias>المِرْقَاب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Jadeed</grapheme>
+    <grapheme>Al-Jadeed</grapheme>
+    <grapheme>AL Jadeed</grapheme>
+    <grapheme>AL JADEED</grapheme>
+    <grapheme>AL-JADEED</grapheme>
+    <alias>الجَدِيد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Matar</grapheme>
+    <grapheme>Al-Matar</grapheme>
+    <grapheme>AL Matar</grapheme>
+    <grapheme>AL MATAR</grapheme>
+    <grapheme>AL-MATAR</grapheme>
+    <alias>المَطَار</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Thumama</grapheme>
+    <grapheme>Al-Thumama</grapheme>
+    <grapheme>AL Thumama</grapheme>
+    <grapheme>AL THUMAMA</grapheme>
+    <grapheme>AL-THUMAMA</grapheme>
+    <alias>الثُّمَامَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Nuaija</grapheme>
+    <grapheme>Al-Nuaija</grapheme>
+    <grapheme>AL Nuaija</grapheme>
+    <grapheme>AL NUAIJA</grapheme>
+    <grapheme>AL-NUAIJA</grapheme>
+    <alias>النُّعَيْجَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Hilal</grapheme>
+    <grapheme>Al-Hilal</grapheme>
+    <grapheme>AL Hilal</grapheme>
+    <grapheme>AL HILAL</grapheme>
+    <grapheme>AL-HILAL</grapheme>
+    <alias>الهِلَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Wajba</grapheme>
+    <grapheme>Al-Wajba</grapheme>
+    <grapheme>AL Wajba</grapheme>
+    <grapheme>AL WAJBA</grapheme>
+    <grapheme>AL-WAJBA</grapheme>
+    <alias>الوَجْبَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Sailiya</grapheme>
+    <grapheme>Al-Sailiya</grapheme>
+    <grapheme>AL Sailiya</grapheme>
+    <grapheme>AL SAILIYA</grapheme>
+    <grapheme>AL-SAILIYA</grapheme>
+    <alias>السَّيْلِيَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Gharaffa</grapheme>
+    <grapheme>Al-Gharaffa</grapheme>
+    <grapheme>AL Gharaffa</grapheme>
+    <grapheme>AL GHARAFFA</grapheme>
+    <grapheme>AL-GHARAFFA</grapheme>
+    <alias>الغَرَّافَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Gharrafa</grapheme>
+    <grapheme>Al-Gharrafa</grapheme>
+    <grapheme>AL Gharrafa</grapheme>
+    <grapheme>AL GHARRAFA</grapheme>
+    <grapheme>AL-GHARRAFA</grapheme>
+    <alias>الغَرَّافَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Gharafa</grapheme>
+    <grapheme>Al-Gharafa</grapheme>
+    <grapheme>AL Gharafa</grapheme>
+    <grapheme>AL GHARAFA</grapheme>
+    <grapheme>AL-GHARAFA</grapheme>
+    <alias>الغَرَّافَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Luqta</grapheme>
+    <grapheme>Al-Luqta</grapheme>
+    <grapheme>AL Luqta</grapheme>
+    <grapheme>AL LUQTA</grapheme>
+    <grapheme>AL-LUQTA</grapheme>
+    <alias>اللُّقْطَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Waab</grapheme>
+    <grapheme>Al-Waab</grapheme>
+    <grapheme>AL Waab</grapheme>
+    <grapheme>AL WAAB</grapheme>
+    <grapheme>AL-WAAB</grapheme>
+    <alias>الوَعَب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Aziziyah</grapheme>
+    <grapheme>Al-Aziziyah</grapheme>
+    <grapheme>AL Aziziyah</grapheme>
+    <grapheme>AL AZIZIYAH</grapheme>
+    <grapheme>AL-AZIZIYAH</grapheme>
+    <alias>العَزِيزِيَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Aziziya</grapheme>
+    <grapheme>Al-Aziziya</grapheme>
+    <grapheme>AL Aziziya</grapheme>
+    <grapheme>AL AZIZIYA</grapheme>
+    <grapheme>AL-AZIZIYA</grapheme>
+    <alias>العَزِيزِيَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Soudan</grapheme>
+    <grapheme>Al-Soudan</grapheme>
+    <grapheme>AL Soudan</grapheme>
+    <grapheme>AL SOUDAN</grapheme>
+    <grapheme>AL-SOUDAN</grapheme>
+    <alias>السُّودَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Muaither</grapheme>
+    <grapheme>Al-Muaither</grapheme>
+    <grapheme>AL Muaither</grapheme>
+    <grapheme>AL MUAITHER</grapheme>
+    <grapheme>AL-MUAITHER</grapheme>
+    <alias>المُعَيْذِر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Kharaitiyat</grapheme>
+    <grapheme>Al-Kharaitiyat</grapheme>
+    <grapheme>AL Kharaitiyat</grapheme>
+    <grapheme>AL KHARAITIYAT</grapheme>
+    <grapheme>AL-KHARAITIYAT</grapheme>
+    <alias>الخُرَيْطِيَات</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Noora</grapheme>
+    <grapheme>Al-Noora</grapheme>
+    <grapheme>AL Noora</grapheme>
+    <grapheme>AL NOORA</grapheme>
+    <grapheme>AL-NOORA</grapheme>
+    <alias>النُّورَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Meera</grapheme>
+    <grapheme>Al-Meera</grapheme>
+    <grapheme>AL Meera</grapheme>
+    <grapheme>AL MEERA</grapheme>
+    <grapheme>AL-MEERA</grapheme>
+    <alias>المِيرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Leabaib</grapheme>
+    <grapheme>Al-Leabaib</grapheme>
+    <grapheme>AL Leabaib</grapheme>
+    <grapheme>AL LEABAIB</grapheme>
+    <grapheme>AL-LEABAIB</grapheme>
+    <alias>اللِّعْبِيب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Murra</grapheme>
+    <grapheme>Al-Murra</grapheme>
+    <grapheme>AL Murra</grapheme>
+    <grapheme>AL MURRA</grapheme>
+    <grapheme>AL-MURRA</grapheme>
+    <alias>المُرَّة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Duhail</grapheme>
+    <grapheme>Al-Duhail</grapheme>
+    <grapheme>AL Duhail</grapheme>
+    <grapheme>AL DUHAIL</grapheme>
+    <grapheme>AL-DUHAIL</grapheme>
+    <alias>الدُّحَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Hamam</grapheme>
+    <grapheme>Al-Hamam</grapheme>
+    <grapheme>AL Hamam</grapheme>
+    <grapheme>AL HAMAM</grapheme>
+    <grapheme>AL-HAMAM</grapheme>
+    <alias>الحَمَام</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Qassar</grapheme>
+    <grapheme>Al-Qassar</grapheme>
+    <grapheme>AL Qassar</grapheme>
+    <grapheme>AL QASSAR</grapheme>
+    <grapheme>AL-QASSAR</grapheme>
+    <alias>القَصَّار</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Janoub</grapheme>
+    <grapheme>Al-Janoub</grapheme>
+    <grapheme>AL Janoub</grapheme>
+    <grapheme>AL JANOUB</grapheme>
+    <grapheme>AL-JANOUB</grapheme>
+    <alias>الجَنُوب</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Kheesa</grapheme>
+    <grapheme>Al-Kheesa</grapheme>
+    <grapheme>AL Kheesa</grapheme>
+    <grapheme>AL KHEESA</grapheme>
+    <grapheme>AL-KHEESA</grapheme>
+    <alias>الخِيسَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Mamoura</grapheme>
+    <grapheme>Al-Mamoura</grapheme>
+    <grapheme>AL Mamoura</grapheme>
+    <grapheme>AL MAMOURA</grapheme>
+    <grapheme>AL-MAMOURA</grapheme>
+    <alias>المَعْمُورَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Baladi</grapheme>
+    <grapheme>Al-Baladi</grapheme>
+    <grapheme>AL Baladi</grapheme>
+    <grapheme>AL BALADI</grapheme>
+    <grapheme>AL-BALADI</grapheme>
+    <alias>البَلَدِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Wukair</grapheme>
+    <grapheme>Al-Wukair</grapheme>
+    <grapheme>AL Wukair</grapheme>
+    <grapheme>AL WUKAIR</grapheme>
+    <grapheme>AL-WUKAIR</grapheme>
+    <alias>الوُكَيْر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Meshaf</grapheme>
+    <grapheme>Al-Meshaf</grapheme>
+    <grapheme>AL Meshaf</grapheme>
+    <grapheme>AL MESHAF</grapheme>
+    <grapheme>AL-MESHAF</grapheme>
+    <alias>المَشَاف</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Mashaf</grapheme>
+    <grapheme>Al-Mashaf</grapheme>
+    <grapheme>AL Mashaf</grapheme>
+    <grapheme>AL MASHAF</grapheme>
+    <grapheme>AL-MASHAF</grapheme>
+    <alias>المَشَاف</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Dafna</grapheme>
+    <grapheme>Al-Dafna</grapheme>
+    <grapheme>AL Dafna</grapheme>
+    <grapheme>AL DAFNA</grapheme>
+    <grapheme>AL-DAFNA</grapheme>
+    <alias>الدَّفْنَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Tawar</grapheme>
+    <grapheme>Al-Tawar</grapheme>
+    <grapheme>AL Tawar</grapheme>
+    <grapheme>AL TAWAR</grapheme>
+    <grapheme>AL-TAWAR</grapheme>
+    <alias>الطَّوَّار</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Bidda</grapheme>
+    <grapheme>Al-Bidda</grapheme>
+    <grapheme>AL Bidda</grapheme>
+    <grapheme>AL BIDDA</grapheme>
+    <grapheme>AL-BIDDA</grapheme>
+    <alias>البِدَع</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Al Sakhama</grapheme>
+    <grapheme>Al-Sakhama</grapheme>
+    <grapheme>AL Sakhama</grapheme>
+    <grapheme>AL SAKHAMA</grapheme>
+    <grapheme>AL-SAKHAMA</grapheme>
+    <alias>السَّخَامَة</alias>
+  </lexeme>
+
+  <!-- ===== Whole names, said in one go (no language switch word by word) ===== -->
+  <lexeme>
+    <grapheme>Souq Waqif</grapheme>
+    <grapheme>SOUQ WAQIF</grapheme>
+    <grapheme>Souk Waqif</grapheme>
+    <grapheme>SOUK WAQIF</grapheme>
+    <alias>سُوق وَاقِف</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Souq Al Baladi</grapheme>
+    <grapheme>SOUQ AL BALADI</grapheme>
+    <grapheme>Souk Al Baladi</grapheme>
+    <grapheme>SOUK AL BALADI</grapheme>
+    <alias>سُوق البَلَدِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ad Dawhah</grapheme>
+    <grapheme>AD DAWHAH</grapheme>
+    <alias>الدَّوْحَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bin Mahmoud</grapheme>
+    <grapheme>BIN MAHMOUD</grapheme>
+    <alias>بِن مَحْمُود</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fereej Bin Mahmoud</grapheme>
+    <grapheme>FEREEJ BIN MAHMOUD</grapheme>
+    <alias>فِرِيج بِن مَحْمُود</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bin Durham</grapheme>
+    <grapheme>BIN DURHAM</grapheme>
+    <alias>بِن دِرْهَم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fereej Bin Durham</grapheme>
+    <grapheme>FEREEJ BIN DURHAM</grapheme>
+    <alias>فِرِيج بِن دِرْهَم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Fereej Al Soudan</grapheme>
+    <grapheme>FEREEJ AL SOUDAN</grapheme>
+    <alias>فِرِيج السُّودَان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Umm Salal</grapheme>
+    <grapheme>UMM SALAL</grapheme>
+    <alias>أُمّ صَلَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Umm Salal Mohammed</grapheme>
+    <grapheme>UMM SALAL MOHAMMED</grapheme>
+    <grapheme>Umm Salal Mohamed</grapheme>
+    <grapheme>UMM SALAL MOHAMED</grapheme>
+    <alias>أُمّ صَلَال مُحَمَّد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Umm Salal Ali</grapheme>
+    <grapheme>UMM SALAL ALI</grapheme>
+    <alias>أُمّ صَلَال عَلِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abu Hamour</grapheme>
+    <grapheme>ABU HAMOUR</grapheme>
+    <alias>أَبُو هَامُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abu Sidra</grapheme>
+    <grapheme>ABU SIDRA</grapheme>
+    <alias>أَبُو سِدْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Bu Sidra</grapheme>
+    <grapheme>BU SIDRA</grapheme>
+    <alias>بُو سِدْرَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ain Khalid</grapheme>
+    <grapheme>AIN KHALID</grapheme>
+    <grapheme>Ain Khaled</grapheme>
+    <grapheme>AIN KHALED</grapheme>
+    <alias>عَيْن خَالِد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Barwa Madinatna</grapheme>
+    <grapheme>BARWA MADINATNA</grapheme>
+    <alias>بَرْوَة مَدِينَتْنَا</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Matar Qadeem</grapheme>
+    <grapheme>MATAR QADEEM</grapheme>
+    <alias>مَطَار قَدِيم</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Madinat Khalifa</grapheme>
+    <grapheme>MADINAT KHALIFA</grapheme>
+    <alias>مَدِينَة خَلِيفَة</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Madinat Al Shamal</grapheme>
+    <grapheme>MADINAT AL SHAMAL</grapheme>
+    <alias>مَدِينَة الشَّمَال</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Rawdat Al Khail</grapheme>
+    <grapheme>RAWDAT AL KHAIL</grapheme>
+    <alias>رَوْضَة الخَيْل</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Mirqab Al Jadeed</grapheme>
+    <grapheme>MIRQAB AL JADEED</grapheme>
+    <alias>مِرْقَاب الجَدِيد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Gharrafat Al Rayyan</grapheme>
+    <grapheme>GHARRAFAT AL RAYYAN</grapheme>
+    <alias>غَرَّافَة الرَّيَّان</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jeryan Jenaihat</grapheme>
+    <grapheme>JERYAN JENAIHAT</grapheme>
+    <alias>جِرْيَان جُنَيْحَات</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ras Abu Fontas</grapheme>
+    <grapheme>RAS ABU FONTAS</grapheme>
+    <alias>رَأْس أَبُو فُنْطَاس</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Dahl Al Hamam</grapheme>
+    <grapheme>DAHL AL HAMAM</grapheme>
+    <alias>دَحْل الحَمَام</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Ayatul Kursi</grapheme>
+    <grapheme>AYATUL KURSI</grapheme>
+    <alias>آيَةُ الكُرْسِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abdul Rahman</grapheme>
+    <grapheme>ABDUL RAHMAN</grapheme>
+    <alias>عَبْدُ الرَّحْمَن</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Abdul Aziz</grapheme>
+    <grapheme>ABDUL AZIZ</grapheme>
+    <alias>عَبْدُ العَزِيز</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>Assalamu Alaikum</grapheme>
+    <grapheme>ASSALAMU ALAIKUM</grapheme>
+    <alias>السَّلَامُ عَلَيْكُم</alias>
+  </lexeme>
+
+  <!-- ===== Fused spellings in the Branches data (read as the words they stand for) ===== -->
+  <lexeme>
+    <grapheme>AINKHALID</grapheme>
+    <alias>عَيْن خَالِد</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>ALKHOR</grapheme>
+    <alias>الخُور</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>ALNASR</grapheme>
+    <alias>النَّصْر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>BINMAHMOUD</grapheme>
+    <alias>بِن مَحْمُود</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>ALBALADI</grapheme>
+    <alias>البَلَدِي</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>ALWUKAIR</grapheme>
+    <alias>الوُكَيْر</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>MoQ</grapheme>
+    <grapheme>MOQ</grapheme>
+    <alias>Mall of Qatar</alias>
+  </lexeme>
+  <lexeme>
+    <grapheme>AL</grapheme>
+    <alias>Al</alias>
+  </lexeme>
+
+  <!-- ===== Phonemes (see header: HD voices ignore these today) ===== -->
+  <!-- not Arabic: gold weight unit -->
+  <lexeme>
+    <grapheme>Tola</grapheme>
+    <grapheme>TOLA</grapheme>
+    <phoneme>ˈtoʊ.lə</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Tolas</grapheme>
+    <grapheme>TOLAS</grapheme>
+    <phoneme>ˈtoʊ.ləz</phoneme>
+  </lexeme>
+  <!-- not Arabic -->
+  <lexeme>
+    <grapheme>Vendome</grapheme>
+    <grapheme>VENDOME</grapheme>
+    <phoneme>vɑn.ˈdoʊm</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Giardino</grapheme>
+    <grapheme>GIARDINO</grapheme>
+    <phoneme>dʒɑɹ.ˈdi.noʊ</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Villaggio</grapheme>
+    <grapheme>VILLAGGIO</grapheme>
+    <phoneme>vɪ.ˈlɑ.dʒoʊ</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Corniche</grapheme>
+    <grapheme>CORNICHE</grapheme>
+    <phoneme>kɔɹ.ˈniʃ</phoneme>
+  </lexeme>
+  <!-- Arabic spelling to confirm before switching to an alias -->
+  <lexeme>
+    <grapheme>Wathnan</grapheme>
+    <grapheme>WATHNAN</grapheme>
+    <phoneme>wɑθ.ˈnɑn</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Jahhaniya</grapheme>
+    <grapheme>JAHHANIYA</grapheme>
+    <phoneme>dʒæ.hə.ˈni.jə</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Thuaileb</grapheme>
+    <grapheme>THUAILEB</grapheme>
+    <phoneme>θu.ˈeɪ.lɪb</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Zaeem</grapheme>
+    <grapheme>ZAEEM</grapheme>
+    <phoneme>zə.ˈim</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Lekhba</grapheme>
+    <grapheme>LEKHBA</grapheme>
+    <phoneme>ˈlɛk.bə</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Seneem</grapheme>
+    <grapheme>SENEEM</grapheme>
+    <phoneme>sə.ˈnim</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Izghawa</grapheme>
+    <grapheme>IZGHAWA</grapheme>
+    <phoneme>ɪz.ˈgɑ.wə</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>Legtaifiya</grapheme>
+    <grapheme>LEGTAIFIYA</grapheme>
+    <phoneme>lɛg.taɪ.ˈfi.jə</phoneme>
+  </lexeme>
+</lexicon>
